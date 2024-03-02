@@ -12,7 +12,7 @@ import java.util.Random;
 
 public class MyAlg {
 
-    public static int dimension = 100;
+    public static int dimension = 2;
     public static int populationSize = 2;
     public static int generations = 10;
 

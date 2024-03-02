@@ -9,7 +9,7 @@ import java.util.Random;
 public class MyMutation implements EvolutionaryOperator<double[]> {
 
     // Вероятность мутации
-    private static final double MUTATION_PROBABILITY = 0.02;
+    private static final double MUTATION_PROBABILITY = 0.01;
     private static final MyRandomGenerator randomGenerator = new MyRandomGenerator();
 
     public List<double[]> apply(List<double[]> population, Random random) {
