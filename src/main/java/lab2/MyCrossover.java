@@ -8,10 +8,11 @@ import java.util.Random;
 
 public class MyCrossover extends AbstractCrossover<double[]> {
 
-    private static final double ALPHA = 0.5;
+    private static double ALPHA;
 
-    protected MyCrossover() {
+    protected MyCrossover(double alpha) {
         super(1);
+        ALPHA = alpha;
     }
 
     protected List<double[]> mate(double[] p1, double[] p2, int i, Random random) {

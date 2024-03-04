@@ -16,7 +16,16 @@ public class MyAlg {
     public static int populationSize = 2;
     public static int generations = 10;
 
+    public static Config config;
+
     public static void main(String[] args) {
+        config = new Config(
+                0.35,
+                0.3,
+                0.9,
+                0.01
+        );
+
         List<Double> fits = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
             fits.add(evolve());
@@ -50,8 +59,16 @@ public class MyAlg {
     private static ArrayList<EvolutionaryOperator<double[]>> createOperators() {
         // Создание операторов над множеством особей в популяции
         ArrayList<EvolutionaryOperator<double[]>> operators = new ArrayList<EvolutionaryOperator<double[]>>();
-        operators.add(new MyCrossover()); // Crossover
-        operators.add(new MyMutation()); // Mutation
+        operators.add(
+                new MyCrossover(config.CROSSOVER_ALPHA)
+        ); // Crossover
+        operators.add(
+                new MyMutation(
+                        config.MUTATION_PROBABILITY,
+                        config.MUTATION_DECAY_RATE,
+                        config.MIN_MUTATION_PROBABILITY
+                )
+        ); // Mutation
         return operators;
     }
 
